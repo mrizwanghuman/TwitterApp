@@ -1,0 +1,16 @@
+﻿@model TwitterApp.Models.TweetScreenName
+
+@using (Html.BeginForm("UserScreenName", "Home", FormMethod.Post, new { @class = "searchTweetUser" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search Tweets By User" name="searchByUser">
+        @Html.ValidationMessageFor(model => model.TweetsUserNumber, "", new { @class = "text-danger" })
+        
+    </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Number Of Tweets" name="tweetsUserNumber">
+            @Html.ValidationMessageFor(model => model.TweetsUserNumber, "", new { @class = "text-danger" })
+        </div>
+        <button type="submit" class="btn btn-success">Search Tweets By User</button>
+}

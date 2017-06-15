@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Twitter Api</h2>
+<button class="btn btn-primary screenName">Search Tweet By Screen Name</button> <button class="btn btn-primary SearchString">Search Tweet</button> 
+@Html.Partial("_TwwetScreenName")
+@Html.Partial("_TweetSearchByText")
+
+@if(ViewBag.currtweet != null){
+<table class="table">
+    <tr><th>Tweet</th><th>Date</th></tr>
+@foreach (var tweet in ViewBag.currtweet)
+{
+    if (tweet.Text != null)
+    {
+    <tr>
+  <td>@tweet.Text</td><td></td><td>@tweet.CreatedAt.Date</td></tr>
+    }
+    else
+    {
+        <tr><td>No such result found</td></tr>
+    }
+
+}
+    </table>
+}
+
+@if(ViewBag.currtweet != null){
+<table class="table">
+    <tr><th>Tweet</th><th>Date</th></tr>
+@foreach (var tweet in ViewBag.currtweet)
+{
+    if (tweet.Text != null)
+    {
+    <tr>
+  <td>@tweet.Text</td><td></td><td>@tweet.CreatedAt.Date</td></tr>
+    }
+    else
+    {
+        <tr><td>No such result found</td></tr>
+    }
+
+}
+    </table>
+}
+@if (ViewBag.searchResutl != null)
+{
+    <table class="table">
+        <tr><th>Tweet</th><th>Date</th></tr>
+        @foreach (var tweet in ViewBag.searchResutl)
+        {
+            if (tweet.Text != null)
+            {
+                <tr>
+                    <td>@tweet.Text</td>
+                    <td></td>
+                    <td>@tweet.CreatedAt.Date</td>
+                </tr>
+            }
+            else
+            {
+                <tr><td>No such result found</td></tr>
+            }
+
+        }
+    </table>
+}
+
+@if (ViewBag.error != null)
+{
+    <p class="btn-danger col-xs-12">@ViewBag.error</p>
+}
+

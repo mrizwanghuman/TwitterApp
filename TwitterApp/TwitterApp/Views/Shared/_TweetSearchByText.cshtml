@@ -1,0 +1,15 @@
+﻿@model TwitterApp.Models.SearchTweetsModel
+
+@using (Html.BeginForm("TweetSearch", "Home", FormMethod.Post, new { @class = "searchTweet" }))
+{ 
+    
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search Tweets By Text" name="SearchByText">
+        @Html.ValidationMessageFor(model => model.SearchByText, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Number Of Tweets" name="TweetsSearchNumber">
+        @Html.ValidationMessageFor(model => model.TweetsSearchNumber, "", new { @class = "text-danger" })
+    </div>
+        <button type="submit" class="btn btn-success">Search Tweets By Text</button>
+}
